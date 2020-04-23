@@ -12,7 +12,7 @@ let seedStrokes = [];
 let canvas;
 
 function setup() {
-  canvas = createCanvas(640, 640);
+  canvas = createCanvas(640, 480);
   canvas.hide();
   background(230,230,250);
   model = ml5.sketchRNN('hand', modelReady);
@@ -50,7 +50,7 @@ function draw() {
 
   if (mouseIsPressed) {
     stroke(255,255,224);
-    strokeWeight(4);
+    strokeWeight(3.0);
     line(pmouseX, pmouseY, mouseX, mouseY);
     let userStroke = {
       dx: mouseX - pmouseX,
@@ -63,7 +63,7 @@ function draw() {
   if (strokePath) {
     if (previous_pen == 'down') {
       stroke(50);
-      strokeWeight(4);
+      strokeWeight(3.0);
       line(x, y, x + strokePath.dx, y + strokePath.dy);
     }
     x += strokePath.dx;
